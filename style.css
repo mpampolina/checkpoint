@@ -80,18 +80,19 @@ nav ul li a {
 
 /* Add Board Button Styles */
 
-.addBoard {
+#add-board-btn--container {
   width: 700px;
   margin: 10px auto;
+  background-color: var(--dark-grey);
   border: none;
   border-radius: 15px;
   box-shadow: -5px 5px 0px var(--light-blue);
 }
 
-#addBoardBtn {
+#add-board-btn {
   width: 100%;
-  color:white;
   background-color: var(--dark-grey);
+  color:white;
   font-family: "Nunito", sans-serif;
   font-size: 1.3rem;
   border: var(--dark-grey);
@@ -99,12 +100,40 @@ nav ul li a {
   cursor: pointer;
 }
 
-#addBoardBtn:focus {
+#add-board-btn:focus {
   outline: none;
 }
 
-.addBoard .hideElem {
+#add-board-btn--container .hide-elem {
   display: none;
+}
+
+#add-board-btn--form {
+  background-color: var(--dark-grey);
+  color: white;
+}
+
+#add-board-btn--form button {
+  background-color: var(--dark-grey);
+  color: white;
+  border-bottom: 2px solid var(--dark-grey);
+}
+
+#add-board-btn--form button:hover {
+  border-bottom: 2px solid var(--light-blue);
+}
+
+#add-board-btn--input {
+  margin: 10px 0px;
+  background-color: var(--dark-grey);
+  color: white;
+  border: none;
+  border-bottom: 2px solid white;
+  font-size: 1.2rem;
+}
+
+#add-board-btn--input:focus {
+  outline: none;
 }
 
 /* Board Styling Prototypes (will be transferred
@@ -181,7 +210,7 @@ over to webcomponents stylesheet)*/
 /* Add Link Form Styling Prototypes (will be transferred
 over to webcomponent's stylesheet)*/
 
-.addLinkForm {
+.form {
   margin: 10px 10px;
   padding: 10px 20px;
   background-color: var(--grey-white);
@@ -189,7 +218,7 @@ over to webcomponent's stylesheet)*/
   border-radius: 10px;
 }
 
-.linkInput {
+.input {
   font-family: "Nunito", sans-serif;
   font-size: 1.2rem;
   background-color: var(--grey-white);
@@ -199,17 +228,17 @@ over to webcomponent's stylesheet)*/
   margin: 10px 0px;
 }
 
-.linkInput:focus {
+.input:focus {
   outline: none;
 }
 
-.addLinkControl {
+.btn-control {
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
 }
 
-.addBtn {
+.form-btn {
   padding: 10px 5px 0px 5px;
   margin: 5px 5px;
   font-family: "Nunito", sans-serif;
@@ -222,32 +251,32 @@ over to webcomponent's stylesheet)*/
   cursor: pointer;
 }
 
-.addBtn:hover {
+.form-btn:hover {
   border-bottom: 2px solid var(--light-blue)
 }
 
-.addBtn:focus {
+.form-btn:focus {
   outline: none;
 }
 
 /* Add Link Button Styling Prototypes (will be transferred
 over to webcomponent's stylesheet)*/
 
-.addLink {
+.add-link-btn--container {
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
 
-.addNewLink {
+.add-link-btn {
   margin: 10px auto;
   padding: 10px 20px;
-  border: none;
   font-size: 1rem;
-  border-bottom: 2px solid white;
   background-color: white;
+  border: none;
+  border-bottom: 2px solid white;
 }
 
-.addLink .hideElem {
+.add-link-btn--container .hide-elem {
   display: none;
 }

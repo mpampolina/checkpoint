@@ -25,15 +25,22 @@
     </div>
   </div>
   
+  <!-- add-board-btn -->
   <div class="container">
-    <div class="addBoard">
-      <button id="addBoardBtn">
+    <div id="add-board-btn--container">
+      <button id="add-board-btn">
         <h3>-- Add New Board --</h3>
       </button>
-      <form action="" id="addBoardForm" class="hideElem flexV">
-        <label for="board-title">Board Title</label>
-        <input type="text" name="board-title">
-      </form>
+      <div id="add-board-btn--form" class="form hide-elem">
+        <form action="" class=" flexV">
+          <label for="board-title">Board Title</label>
+          <input type="text" name="board-title" id="add-board-btn--input" placeholder="insert new board name here">
+          <div class="btn-control">
+            <button class="form-btn" type="submit">save</button>
+            <button class="form-btn" id="add-board-btn--cancel" type="button">cancel</button>
+          </div>
+        </form>
+      </div>
     </div>
   </div>
 
@@ -57,18 +64,18 @@
         </div>
       </div>
 
-      <div class="addLink">
-        <button class="addNewLink addBtn">
+      <div class="add-link-btn--container">
+        <button class="add-link-btn form-btn">
           <h4>-- Add New Link --</h4>
         </button>
-        <form action="" class="hideElem addLinkForm flexV">
-          <label for="linkUrl">Link URL</label>
-          <input class="linkInput" type="text" placeholder="http:// ...">
-          <label for="linkTitle">Link Title</label>
-          <input class="linkInput" type="text" placeholder="insert awesome website here">
-          <div class="addLinkControl">
-            <button class="addBtn" type="submit">save</button>
-            <button class="addBtn cancelBtn" type="button">cancel</button>
+        <form action="" class="add-link-form hide-elem form flexV">
+          <label for="link-url-input">Link URL</label>
+          <input class="input" type="text" name="link-url-input" placeholder="http:// ...">
+          <label for="link-title-input">Link Title</label>
+          <input class="input" type="text" name="link-title-input" placeholder="insert awesome website here">
+          <div class="btn-control">
+            <button class="form-btn" type="submit">save</button>
+            <button class="form-btn cancel-btn" type="button">cancel</button>
           </div>
         </form>
       </div>

@@ -158,21 +158,22 @@ class LinkLine extends HTMLElement {
 window.customElements.define("link-board", LinkBoard);
 window.customElements.define("link-line", LinkLine);
 
-const addBoardBtn = document.querySelector("#addBoardBtn")
-const addBoardForm = document.querySelector('#addBoardForm')
-const addNewLinkBtn = document.querySelector(".addNewLink")
-const addLinkForm = document.querySelector(".addLinkForm")
-const cancelBtn = document.querySelector(".cancelBtn")
+const addBoardBtn = document.querySelector("#add-board-btn")
+const addBoardForm = document.querySelector('#add-board-btn--form')
+const addLinkBtn = document.querySelector(".add-link-btn")
+const addLinkForm = document.querySelector(".add-link-form")
+const addBoardBtnCancel = document.querySelector("#add-board-btn--cancel")
+const cancelBtn = document.querySelector(".cancel-btn")
 
 function show() {
-  addLinkForm.classList.toggle('hideElem');
+  addLinkForm.classList.toggle('hide-elem');
 }
 
 function show2() {
-  addBoardForm.classList.toggle('hideElem')
+  addBoardForm.classList.toggle('hide-elem')
 }
 
-addNewLinkBtn.addEventListener("click", (e) => {
+addLinkBtn.addEventListener("click", (e) => {
   show();
 })
 
@@ -181,5 +182,9 @@ cancelBtn.addEventListener("click", (e) => {
 })
 
 addBoardBtn.addEventListener("click", (e) => {
+  show2();
+})
+
+addBoardBtnCancel.addEventListener("click", (e) => {
   show2();
 })
