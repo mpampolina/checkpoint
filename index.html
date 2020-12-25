@@ -9,110 +9,114 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" />
 </head>
 <body>
-  
-  <!-- navbar -->
-  <div class="navbar">
-    <div class="container" id="navbar-contents">
-      <h1 id="logo">Checkpoint</h1>
-      <form id="search-wrapper">
-        <input type="text" id="search" placeholder="search">
-      </form>
-      <nav class="flexH">
-        <ul>
-          <li><a href="#">Sign In</a></li>
-        </ul>
-      </nav>
-    </div>
-  </div>
-  
-  <!-- add-board-btn -->
-  <div class="container">
-    <div id="add-board-btn--container">
-      <button id="add-board-btn">
-        <h3>-- Add New Board --</h3>
-      </button>
-      <div id="add-board-btn--form" class="form hide-elem">
-        <form action="" class=" flexV">
-          <label for="board-title">Board Title</label>
-          <input type="text" name="board-title" id="add-board-btn--input" placeholder="insert new board name here">
-          <div class="btn-control">
-            <button class="form-btn" type="submit">save</button>
-            <button class="form-btn" id="add-board-btn--cancel" type="button">cancel</button>
-          </div>
-        </form>
-      </div>
-    </div>
-  </div>
-
-  <!-- simple HTML version -->
-  <div class="container flexV" >
-    <div class="board flexV">
-      <div class="board-header flexH">
-        <h3>Programming & JavaScript</h3>
-        <button class="board-related-actions">
-          <i class="fas fa-ellipsis-v"></i>
-        </button>
-      </div>
-      <div class="link-line">
-        <div class="flexV">
-          <h4>CSS box-shadow Property</h4>
-          <p class="link-url">https://www.w3schools.com/cssref/css3_pr_box-shadow.asp</p>
+  <div id="page-container">
+    <div id="content-wrap">
+      <!-- navbar -->
+      <div class="navbar">
+        <div class="container" id="navbar-contents">
+          <h1 id="logo">Checkpoint</h1>
+          <form id="search-wrapper">
+            <input type="text" id="search" placeholder="search">
+          </form>
+          <nav class="flexH">
+            <ul>
+              <li><a href="#">Sign In</a></li>
+            </ul>
+          </nav>
         </div>
-        <div class="link-line-actions--control">
-          <a href="#" target="_blank" rel="noopener norefferer">open</a>
-          <button>delete</button>
+      </div>
+      
+      <!-- add-board-btn -->
+      <div class="container">
+        <div id="add-board-btn--container">
+          <button id="add-board-btn">
+            <h3>-- Add New Board --</h3>
+          </button>
+          <div id="add-board-btn--form" class="form hide-elem">
+            <form action="" class=" flexV">
+              <label for="board-title">Board Title</label>
+              <input type="text" name="board-title" id="add-board-btn--input" placeholder="insert new board name here">
+              <div class="btn-control">
+                <button class="form-btn" type="submit">save</button>
+                <button class="form-btn" id="add-board-btn--cancel" type="button">cancel</button>
+              </div>
+            </form>
+          </div>
         </div>
       </div>
 
-      <div class="add-link-btn--container">
-        <button class="add-link-btn form-btn">
-          <h4>-- Add New Link --</h4>
-        </button>
-        <form action="" class="add-link-form hide-elem form flexV">
-          <label for="link-url-input">Link URL</label>
-          <input class="input" type="text" name="link-url-input" placeholder="http:// ...">
-          <label for="link-title-input">Link Title</label>
-          <input class="input" type="text" name="link-title-input" placeholder="insert awesome website here">
-          <div class="btn-control">
-            <button class="form-btn" type="submit">save</button>
-            <button class="form-btn cancel-btn" type="button">cancel</button>
+      <!-- simple HTML version -->
+      <div class="container flexV" >
+        <div class="board flexV">
+          <div class="board-header flexH">
+            <h3>Programming & JavaScript</h3>
+            <button class="board-related-actions">
+              <i class="fas fa-ellipsis-v"></i>
+            </button>
           </div>
-        </form>
+          <div class="link-line">
+            <div class="flexV">
+              <h4>CSS box-shadow Property</h4>
+              <p class="link-url">https://www.w3schools.com/cssref/css3_pr_box-shadow.asp</p>
+            </div>
+            <div class="link-line-actions--control">
+              <a href="#" target="_blank" rel="noopener norefferer">open</a>
+              <button>delete</button>
+            </div>
+          </div>
+
+          <div class="add-link-btn--container">
+            <button class="add-link-btn form-btn">
+              <h4>-- Add New Link --</h4>
+            </button>
+            <form action="" class="add-link-form hide-elem form flexV">
+              <label for="link-url-input">Link URL</label>
+              <input class="input" type="text" name="link-url-input" placeholder="http:// ...">
+              <label for="link-title-input">Link Title</label>
+              <input class="input" type="text" name="link-title-input" placeholder="insert awesome website here">
+              <div class="btn-control">
+                <button class="form-btn" type="submit">save</button>
+                <button class="form-btn cancel-btn" type="button">cancel</button>
+              </div>
+            </form>
+          </div>
+        </div>
+
+        <!-- web components version -->
+        <link-board title="Programming & JavaScript">
+          <link-line
+            slot="link-line"
+            linkTitle="MongoDB schema design"
+            linkUrl="https://medium.com/hackernoon/mongodb-schema-design-86327d8fae83"
+          ></link-line>
+          <link-line
+            slot="link-line"
+            linkTitle="Using templates and slots"
+            linkUrl="https://developer.mozilla.org/en-US/docs/Web/Web_Components/Using_templates_and_slots"
+          ></link-line>
+          <add-link-section
+            slot="add-link-section"
+          ></add-link-section>
+        </link-board>
+
       </div>
     </div>
 
-    <!-- web components version -->
-    <link-board title="Programming & JavaScript">
-      <link-line
-        slot="link-line"
-        linkTitle="MongoDB schema design"
-        linkUrl="https://medium.com/hackernoon/mongodb-schema-design-86327d8fae83"
-      ></link-line>
-      <link-line
-        slot="link-line"
-        linkTitle="Using templates and slots"
-        linkUrl="https://developer.mozilla.org/en-US/docs/Web/Web_Components/Using_templates_and_slots"
-      ></link-line>
-      <add-link-section
-        slot="add-link-section"
-      ></add-link-section>
-    </link-board>
-
+    <!-- Footer (end of content-wrap) -->
+    <footer id="footer" class="flexH">
+      <div class="container">
+        <div id="footer-text">
+          <p><span id="footer-logo">Checkpoint</span></p>
+          <p id="footer-links-array">
+            <a href="https://github.com/mpampolina/checkpoint" target="_blank" rel="noopener norefferer">code</a> 
+            • <a href="https://mpampolina.github.io/" target="_blank" rel="noopener norefferer">website</a> 
+            • <a href="https://github.com/mpampolina" target="_blank" rel="noopener norefferer">github</a>
+          </p>
+          <p id="copyright">&copy;2020 by miguel pampolina</p>
+        </div>
+      </div>
+    </footer>
   </div>
-  <footer class="flexH">
-    <div class="container">
-      <div id="footer-text">
-        <p><span id="footer-logo">Checkpoint</span></p>
-        <p id="footer-links-array">
-          <a href="https://github.com/mpampolina/checkpoint" target="_blank" rel="noopener norefferer">code</a> 
-          • <a href="https://mpampolina.github.io/" target="_blank" rel="noopener norefferer">website</a> 
-          • <a href="https://github.com/mpampolina" target="_blank" rel="noopener norefferer">github</a>
-        </p>
-        <p id="copyright">&copy;2020 by miguel pampolina</p>
-      </div>
-    </div>
-  </footer>
-  
 </body>
 <script src="./app.js"></script>
 </html>
