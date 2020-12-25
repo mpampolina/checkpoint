@@ -6,9 +6,11 @@
   <title>Checkpoint</title>
   <link rel="stylesheet" href="./style.css">
   <link rel="stylesheet" href="./utilities.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" />
 </head>
 <body>
   
+  <!-- navbar -->
   <div class="navbar">
     <div class="container" id="navbar-contents">
       <h1 id="logo">Checkpoint</h1>
@@ -23,5 +25,71 @@
     </div>
   </div>
   
+  <div class="container">
+    <div class="addBoard">
+      <button id="addBoardBtn">
+        <h3>-- Add New Board --</h3>
+      </button>
+      <form action="" id="addBoardForm" class="hideElem flexV">
+        <label for="board-title">Board Title</label>
+        <input type="text" name="board-title">
+      </form>
+    </div>
+  </div>
+
+
+  <div class="container flexV" >
+    <div class="board flexV">
+      <div class="boardHeader flexH">
+        <h3>Programming & JavaScript</h3>
+        <button class="board-ra">
+          <i class="fas fa-ellipsis-v"></i>
+        </button>
+      </div>
+      <div class="linkLine">
+        <div class="flexV">
+          <h4 class="linkTitle">CSS box-shadow Property</h4>
+          <p class="linkUrl">https://www.w3schools.com/cssref/css3_pr_box-shadow.asp</p>
+        </div>
+        <div class="linkControl">
+          <a href="#" target="_blank" rel="noopener norefferer">open</a>
+          <button>delete</button>
+        </div>
+      </div>
+
+      <div class="addLink">
+        <button class="addNewLink addBtn">
+          <h4>-- Add New Link --</h4>
+        </button>
+        <form action="" class="hideElem addLinkForm flexV">
+          <label for="linkUrl">Link URL</label>
+          <input class="linkInput" type="text" placeholder="http:// ...">
+          <label for="linkTitle">Link Title</label>
+          <input class="linkInput" type="text" placeholder="insert awesome website here">
+          <div class="addLinkControl">
+            <button class="addBtn" type="submit">save</button>
+            <button class="addBtn cancelBtn" type="button">cancel</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <link-board title="Programming & JavaScript">
+      <link-line
+        slot="linkLine"
+        linkTitle="MongoDB schema design"
+        linkUrl="https://medium.com/hackernoon/mongodb-schema-design-86327d8fae83"
+      ></link-line>
+      <link-line
+        slot="linkLine"
+        linkTitle="Using templates and slots"
+        linkUrl="https://developer.mozilla.org/en-US/docs/Web/Web_Components/Using_templates_and_slots"
+      ></link-line>
+    </link-board>
+
+  </div>
+  
+  
 </body>
+<script src="./app.js"></script>
 </html>

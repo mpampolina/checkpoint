@@ -3,6 +3,8 @@
 :root {
   --light-blue: #19d3da;
   --dark-grey: #373a40;
+  --grey-white: #eeeeee;
+  --white: #ffffff;
 }
 
 * {
@@ -76,3 +78,176 @@ nav ul li a {
   color: var(--dark-grey)
 }
 
+/* Add Board Button Styles */
+
+.addBoard {
+  width: 700px;
+  margin: 10px auto;
+  border: none;
+  border-radius: 15px;
+  box-shadow: -5px 5px 0px var(--light-blue);
+}
+
+#addBoardBtn {
+  width: 100%;
+  color:white;
+  background-color: var(--dark-grey);
+  font-family: "Nunito", sans-serif;
+  font-size: 1.3rem;
+  border: var(--dark-grey);
+  border-radius: 15px;
+  cursor: pointer;
+}
+
+#addBoardBtn:focus {
+  outline: none;
+}
+
+.addBoard .hideElem {
+  display: none;
+}
+
+/* Board Styling Prototypes (will be transferred
+over to webcomponts stylesheets) */
+
+.board {
+  width: 700px;
+  margin: 10px auto;
+  border: 1px solid var(--dark-grey);
+  border-radius: 15px;
+  /* locate shadow x: -5px, y: 5px, 0px blur*/
+  box-shadow: -5px 5px 0px var(--light-blue);
+}
+
+.boardHeader {
+  justify-content: space-between;
+}
+
+.boardHeader h3 {
+  margin: 10px 20px;
+}
+
+.boardHeader i {
+  margin: 16px 20px;
+}
+
+.board-ra {
+  background-color: white;
+  border: none;
+  border-radius: 15px;
+}
+
+.board-ra:focus {
+  outline: none;
+  /* No distance x, y, No blur, 1px of spread */
+  box-shadow: 0 0 0 1px var(--dark-grey);
+}
+
+/* Link Line Styling Prototypes (will be transferred
+over to webcomponents stylesheet)*/
+
+.linkLine {
+  background-color: var(--grey-white);
+  margin: 10px 10px;
+  padding: 10px 10px;
+  border-radius: 10px;
+  display: grid;
+  grid-template-columns: 5fr 1fr;
+  align-items: center;
+}
+
+.linkUrl {
+  font-size: 1rem;
+  color: var(--dark-grey)
+}
+
+.linkControl button {
+  font-family: "Nunito", sans-serif;
+  color: var(--dark-grey);
+  font-size: 1.5rem;
+  font-weight: 300;
+  background-color: none;
+  border: none;
+}
+
+.linkControl a {
+  font-family: "Nunito", sans-serif;
+  color: var(--dark-grey);
+  font-size: 1.5rem;
+  font-weight: 300;
+  text-decoration: none;
+}
+
+/* Add Link Form Styling Prototypes (will be transferred
+over to webcomponent's stylesheet)*/
+
+.addLinkForm {
+  margin: 10px 10px;
+  padding: 10px 20px;
+  background-color: var(--grey-white);
+  color: var(--dark-grey);
+  border-radius: 10px;
+}
+
+.linkInput {
+  font-family: "Nunito", sans-serif;
+  font-size: 1.2rem;
+  background-color: var(--grey-white);
+  color: var(--dark-grey);
+  border: none;
+  border-bottom: 2px solid var(--dark-grey);
+  margin: 10px 0px;
+}
+
+.linkInput:focus {
+  outline: none;
+}
+
+.addLinkControl {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+}
+
+.addBtn {
+  padding: 10px 5px 0px 5px;
+  margin: 5px 5px;
+  font-family: "Nunito", sans-serif;
+  font-weight: 300;
+  font-size: 1.5rem;
+  background-color: none;
+  color: var(--dark-grey);
+  border: none;
+  border-bottom: 2px solid var(--grey-white);
+  cursor: pointer;
+}
+
+.addBtn:hover {
+  border-bottom: 2px solid var(--light-blue)
+}
+
+.addBtn:focus {
+  outline: none;
+}
+
+/* Add Link Button Styling Prototypes (will be transferred
+over to webcomponent's stylesheet)*/
+
+.addLink {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.addNewLink {
+  margin: 10px auto;
+  padding: 10px 20px;
+  border: none;
+  font-size: 1rem;
+  border-bottom: 2px solid white;
+  background-color: white;
+}
+
+.addLink .hideElem {
+  display: none;
+}
