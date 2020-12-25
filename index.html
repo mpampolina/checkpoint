@@ -44,7 +44,7 @@
     </div>
   </div>
 
-
+  <!-- simple HTML version -->
   <div class="container flexV" >
     <div class="board flexV">
       <div class="board-header flexH">
@@ -81,6 +81,7 @@
       </div>
     </div>
 
+    <!-- web components version -->
     <link-board title="Programming & JavaScript">
       <link-line
         slot="link-line"
@@ -92,10 +93,25 @@
         linkTitle="Using templates and slots"
         linkUrl="https://developer.mozilla.org/en-US/docs/Web/Web_Components/Using_templates_and_slots"
       ></link-line>
+      <add-link-section
+        slot="add-link-section"
+      ></add-link-section>
     </link-board>
 
   </div>
-  
+  <footer class="flexH">
+    <div class="container">
+      <div id="footer-text">
+        <p><span id="footer-logo">Checkpoint</span></p>
+        <p id="footer-links-array">
+          <a href="https://github.com/mpampolina/checkpoint" target="_blank" rel="noopener norefferer">code</a> 
+          • <a href="https://mpampolina.github.io/" target="_blank" rel="noopener norefferer">website</a> 
+          • <a href="https://github.com/mpampolina" target="_blank" rel="noopener norefferer">github</a>
+        </p>
+        <p id="copyright">&copy;2020 by miguel pampolina</p>
+      </div>
+    </div>
+  </footer>
   
 </body>
 <script src="./app.js"></script>
