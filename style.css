@@ -148,25 +148,25 @@ over to webcomponts stylesheets) */
   box-shadow: -5px 5px 0px var(--light-blue);
 }
 
-.boardHeader {
+.board-header {
   justify-content: space-between;
 }
 
-.boardHeader h3 {
+.board-header h3 {
   margin: 10px 20px;
 }
 
-.boardHeader i {
+.board-header i {
   margin: 16px 20px;
 }
 
-.board-ra {
+.board-related-actions {
   background-color: white;
   border: none;
   border-radius: 15px;
 }
 
-.board-ra:focus {
+.board-related-actions:focus {
   outline: none;
   /* No distance x, y, No blur, 1px of spread */
   box-shadow: 0 0 0 1px var(--dark-grey);
@@ -175,7 +175,7 @@ over to webcomponts stylesheets) */
 /* Link Line Styling Prototypes (will be transferred
 over to webcomponents stylesheet)*/
 
-.linkLine {
+.link-line {
   background-color: var(--grey-white);
   margin: 10px 10px;
   padding: 10px 10px;
@@ -185,12 +185,12 @@ over to webcomponents stylesheet)*/
   align-items: center;
 }
 
-.linkUrl {
+.link-url {
   font-size: 1rem;
   color: var(--dark-grey)
 }
 
-.linkControl button {
+.link-line-actions--control button {
   font-family: "Nunito", sans-serif;
   color: var(--dark-grey);
   font-size: 1.5rem;
@@ -199,7 +199,7 @@ over to webcomponents stylesheet)*/
   border: none;
 }
 
-.linkControl a {
+.link-line-actions--control a {
   font-family: "Nunito", sans-serif;
   color: var(--dark-grey);
   font-size: 1.5rem;

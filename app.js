@@ -37,27 +37,27 @@ boardTemplate.innerHTML = `
       box-shadow: -5px 5px 0px var(--light-blue);
     }
     
-    .boardHeader {
+    .board-header {
       display: flex;
       flex-direction: row;
       justify-content: space-between;
     }
     
-    .boardHeader h3 {
+    .board-header h3 {
       margin: 10px 20px;
     }
     
-    .boardHeader i {
+    .board-header i {
       margin: 16px 20px;
     }
     
-    .board-ra {
+    .board-related-actions {
       background-color: white;
       border: none;
       border-radius: 15px;
     }
     
-    .board-ra:focus {
+    .board-related-actions:focus {
       outline: none;
       /* No distance x, y, No blur, 1px of spread */
       box-shadow: 0 0 0 1px var(--dark-grey);
@@ -65,13 +65,13 @@ boardTemplate.innerHTML = `
   </style>
 
   <div class="board">
-    <div class="boardHeader">
+    <div class="board-header">
       <h3>Programming & JavaScript</h3>
-      <button class="board-ra">
+      <button class="board-related-actions">
         <i class="fas fa-ellipsis-v"></i>
       </button>
     </div>
-    <slot name="linkLine"></slot>
+    <slot name="link-line"></slot>
   </div>
 `
 
@@ -90,7 +90,7 @@ linkTemplate.innerHTML = `
       flex-direction: column;
     }
 
-    .linkLine {
+    .link-line {
       background-color: var(--grey-white);
       margin: 10px 10px;
       padding: 10px 10px;
@@ -100,12 +100,12 @@ linkTemplate.innerHTML = `
       align-items: center;
     }
     
-    .linkUrl {
+    .link-url {
       font-size: 1rem;
       color: var(--dark-grey)
     }
     
-    .linkControl button {
+    .link-line-actions--control button {
       font-family: "Nunito", sans-serif;
       color: var(--dark-grey);
       font-size: 1.5rem;
@@ -114,7 +114,7 @@ linkTemplate.innerHTML = `
       border: none;
     }
     
-    .linkControl a {
+    .link-line-actions--control a {
       font-family: "Nunito", sans-serif;
       color: var(--dark-grey);
       font-size: 1.5rem;
@@ -123,12 +123,12 @@ linkTemplate.innerHTML = `
     }
   </style>
 
-  <div class="linkLine">
+  <div class="link-line">
     <div class="flexV">
-      <h4 class="linkTitle">CSS box-shadow Property</h4>
-      <p class="linkUrl">https://www.w3schools.com/cssref/css3_pr_box-shadow.asp</p>
+      <h4>CSS box-shadow Property</h4>
+      <p class="link-url">https://www.w3schools.com/cssref/css3_pr_box-shadow.asp</p>
     </div>
-    <div class="linkControl">
+    <div class="link-line-actions--control">
       <a href="#" target="_blank" rel="noopener norefferer">open</a>
       <button>delete</button>
     </div>
