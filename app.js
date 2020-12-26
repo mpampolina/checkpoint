@@ -66,14 +66,59 @@ boardTemplate.innerHTML = `
       /* No distance x, y, No blur, 1px of spread */
       box-shadow: 0 0 0 1px var(--dark-grey);
     }
+
+    /* dropdown */
+    .dropdown {
+      position: relative;
+      display: inline-block;
+    }
+
+    .dropdown-content {
+      position: absolute;
+      min-width: 130px;
+      padding: 10px 15px;
+      background-color: white;
+      border: none;
+      box-shadow: 0px 0px 0px 1px var(--dark-grey);
+      border-radius: 10px;
+      z-index: 1;
+    }
+
+    .dropdown-content button {
+      margin: 5px 0;
+      font-family: "Nunito", sans-serif;
+      font-weight: 300;
+      font-size: 1rem;
+      background-color: white;
+      border: none;
+      border-bottom: 2px solid white;
+    }
+
+    .dropdown-content button:hover {
+      border-bottom: 2px solid var(--light-blue)
+    }
+
+    .dropdown-content button:focus {
+      outline: none;
+    }
+
+    .dropdown .hide-elem {
+      display: none;
+    }
   </style>
 
   <div class="board">
     <div class="board-header">
       <h3>Programming & JavaScript</h3>
-      <button class="board-related-actions">
-        <i class="fas fa-ellipsis-v"></i>
-      </button>
+      <div class="dropdown">
+        <button class="board-related-actions">
+          <i class="fas fa-ellipsis-v"></i>
+        </button>
+        <div class="dropdown-content hide-elem">
+          <button class="cancel-ra-btn">Cancel</button>
+          <button class="delete-ra-btn">Delete Board</button>
+        </div>
+      </div>
     </div>
     <slot name="link-line"></slot>
     <slot name="add-link-section"></slot>
@@ -260,8 +305,19 @@ class LinkBoard extends HTMLElement {
   constructor() {
     super();
     this.attachShadow({ mode: "open" });
-    this.shadowRoot.appendChild(boardTemplate.content.cloneNode(true));
-    this.shadowRoot.querySelector("h3").innerText = this.getAttribute("title");
+    const sr = this.shadowRoot
+    sr.appendChild(boardTemplate.content.cloneNode(true));
+    sr.querySelector("h3").innerText = this.getAttribute("title");
+    const toggleRelatedActionsArr = [
+      sr.querySelector(".board-related-actions"),
+      sr.querySelector(".cancel-ra-btn")
+    ]
+    const dropdownContent = sr.querySelector(".dropdown-content")
+    toggleRelatedActionsArr.forEach((element) => {
+      element.addEventListener("click", () =>{
+        dropdownContent.classList.toggle("hide-elem")
+      })
+    })
   }
 }
 
