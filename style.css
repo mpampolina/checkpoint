@@ -267,7 +267,7 @@ over to webcomponents stylesheet)*/
   justify-content: center;
 }
 
-.link-line-actions--control button {
+.delete-link-btn {
   margin: 5px 5px;
   font-family: "Nunito", sans-serif;
   color: var(--dark-grey);
@@ -278,7 +278,11 @@ over to webcomponents stylesheet)*/
   cursor: pointer;
 }
 
-.link-line-actions--control a {
+.link-line-actions--control .hide-elem{
+  display: none;
+}
+
+.open-link-anchor {
   margin: 5px 5px;
   font-family: "Nunito", sans-serif;
   color: var(--dark-grey);
@@ -369,7 +373,7 @@ over to webcomponent's stylesheet)*/
 
 .dropdown-content {
   position: absolute;
-  min-width: 130px;
+  min-width: 140px;
   padding: 10px 15px;
   background-color: white;
   border: none;
@@ -383,6 +387,7 @@ over to webcomponent's stylesheet)*/
   font-family: "Nunito", sans-serif;
   font-weight: 300;
   font-size: 1rem;
+  text-align: left;
   background-color: white;
   border: none;
   border-bottom: 2px solid white;

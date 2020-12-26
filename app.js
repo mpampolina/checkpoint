@@ -76,7 +76,7 @@ boardTemplate.innerHTML = `
 
     .dropdown-content {
       position: absolute;
-      min-width: 130px;
+      min-width: 140px;
       padding: 10px 15px;
       background-color: white;
       border: none;
@@ -90,6 +90,7 @@ boardTemplate.innerHTML = `
       font-family: "Nunito", sans-serif;
       font-weight: 300;
       font-size: 1rem;
+      text-align: left;
       background-color: white;
       border: none;
       border-bottom: 2px solid white;
@@ -117,6 +118,7 @@ boardTemplate.innerHTML = `
         </button>
         <div class="dropdown-content hide-elem">
           <button class="cancel-ra-btn">Cancel</button>
+          <button class="ra-toggle-delete-btn">Show Delete Buttons</button>
           <button class="delete-ra-btn">Delete Board</button>
         </div>
       </div>
@@ -173,7 +175,7 @@ linkTemplate.innerHTML = `
       justify-content: center;
     }
     
-    .link-line-actions--control button {
+    .delete-link-btn {
       margin: 5px 5px;
       font-family: "Nunito", sans-serif;
       color: var(--dark-grey);
@@ -183,8 +185,12 @@ linkTemplate.innerHTML = `
       border: none;
       cursor: pointer;
     }
+
+    .link-line-actions--control .hide-elem{
+      display: none;
+    }
     
-    .link-line-actions--control a {
+    .open-link-anchor {
       margin: 5px 5px;
       font-family: "Nunito", sans-serif;
       color: var(--dark-grey);
@@ -200,8 +206,8 @@ linkTemplate.innerHTML = `
       <p class="link-url"></p>
     </div>
     <div class="link-line-actions--control">
-      <a href="#" target="_blank" rel="noopener norefferer">open</a>
-      <button>delete</button>
+      <a href="#" target="_blank" rel="noopener norefferer" class="open-link-anchor">open</a>
+      <button class="delete-link-btn hide-elem">delete</button>
     </div>
   </div>
 `;
@@ -339,6 +345,23 @@ class LinkBoard extends HTMLElement {
         dropdownContent.classList.toggle("hide-elem")
       })
     })
+
+    /* HIDE AND SHOW DELETE LINK BUTTONS */
+    const toggleDeleteLinksBtn = sr.querySelector(".ra-toggle-delete-btn")
+    toggleDeleteLinksBtn.addEventListener("click", () => {
+      /* Toggle hiding and showing the delete links button
+      for each link-link */
+      const linkLines = Array.from(this.querySelectorAll("link-line"))
+      linkLines.forEach((linkLine) => {
+        const deleteLinkBtn = linkLine.shadowRoot.querySelector(".delete-link-btn")
+        deleteLinkBtn.classList.toggle("hide-elem")
+      })
+      
+      /* Change the delete links toggle text */
+      toggleDeleteLinksBtn.innerText === "Show Delete Buttons" ? 
+        toggleDeleteLinksBtn.innerText = "Hide Delete Buttons": 
+        toggleDeleteLinksBtn.innerText = "Show Delete Buttons"
+    })
   }
 }
 
@@ -391,10 +414,3 @@ toggleBoardFormArr.forEach((element) => {
     addBoardBtnForm.classList.toggle("hide-elem");
   });
 });
-
-/* 
-0.8 rem for small text
-1rem for text body
-1.2 rem for medium
-1.5 rem for large
-2rem for logo */
