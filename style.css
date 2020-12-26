@@ -15,8 +15,8 @@
 
 body {
   font-family: "Nunito", sans-serif;
-  font-weight: 400;
-  font-size: 24px;
+  font-weight: 300;
+  font-size: 1.2rem;
 }
 
 #page-container {
@@ -35,22 +35,23 @@ body {
 }
 
 #navbar-contents {
+  height: 100%;
   display: grid;
-  gap: 25px;
-  grid-template-columns: repeat(6, 1fr);
+  gap: 10px;
+  grid-template-columns: repeat(8, 1fr);
+  align-items: center;
 }
 
 #logo {
   font-family: "Nunito", sans-serif;
   font-weight: 600;
-  font-size: 3rem;
+  font-size: 2rem;
   grid-column: 1 / span 2;
-  /* 150/2 - 65.2/2 = 42.4 */
-  margin-top: 42.4px;
+  text-align: center;
 }
 
 #search-wrapper {
-  grid-column: 3 / span 3;
+  grid-column: 3 / span 5;
 }
 
 #search {
@@ -59,7 +60,6 @@ body {
   font-size: 1rem;
   padding: 5px 8px;
   background-color: var(--light-blue);
-  margin-top: 64.2px;
   width: 100%;
   border: 0px;
   border-bottom: 2px solid var(--dark-grey);
@@ -71,10 +71,9 @@ body {
 }
 
 .navbar nav {
-  grid-column: 6 / span 1;
-  margin-top: 58.6px;
+  grid-column: 8 / span 1;
   width: 100%;
-  justify-content: flex-end;
+  justify-content: center
 }
 
 nav ul {
@@ -83,7 +82,8 @@ nav ul {
 
 nav ul li a {
   text-decoration: none;
-  color: var(--dark-grey)
+  color: var(--dark-grey);
+  font-size: 1.2rem;
 }
 
 .navbar {
@@ -134,7 +134,9 @@ nav ul li a {
 /* Add Board Button Styles */
 
 #add-board-btn--container {
-  width: 700px;
+  max-width: 700px;
+  /* account for padding, which is 40px x2*/
+  min-width: 420px;
   margin: 10px auto;
   background-color: var(--dark-grey);
   border: none;
@@ -144,10 +146,12 @@ nav ul li a {
 
 #add-board-btn {
   width: 100%;
+  padding: 10px 0px;
   background-color: var(--dark-grey);
   color:white;
   font-family: "Nunito", sans-serif;
-  font-size: 1.3rem;
+  font-size: 1.2rem;
+  font-weight: 300;
   border: var(--dark-grey);
   border-radius: 15px;
   cursor: pointer;
@@ -193,7 +197,8 @@ nav ul li a {
 over to webcomponts stylesheets) */
 
 .board {
-  width: 700px;
+  max-width: 700px;
+  min-width: 420px;
   margin: 10px auto;
   border: 1px solid var(--dark-grey);
   border-radius: 15px;
@@ -239,15 +244,34 @@ over to webcomponents stylesheet)*/
   align-items: center;
 }
 
+.link-body {
+  display: flex;
+  flex-direction: column;
+  grid-template-columns: 1 / span 5;
+}
+
+.link-body p {
+  /* enable the word (link) to be broken 
+  anywhere when scaling the viewport */
+  word-break: break-all;
+}
+
 .link-url {
   font-size: 1rem;
   color: var(--dark-grey)
 }
 
+.link-line-actions--control {
+  grid-template-columns: 5 / span 1;
+  display: flex;
+  justify-content: center;
+}
+
 .link-line-actions--control button {
+  margin: 5px 5px;
   font-family: "Nunito", sans-serif;
   color: var(--dark-grey);
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   font-weight: 300;
   background-color: none;
   border: none;
@@ -255,9 +279,10 @@ over to webcomponents stylesheet)*/
 }
 
 .link-line-actions--control a {
+  margin: 5px 5px;
   font-family: "Nunito", sans-serif;
   color: var(--dark-grey);
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   font-weight: 300;
   text-decoration: none;
 }
@@ -298,7 +323,7 @@ over to webcomponent's stylesheet)*/
   margin: 5px 5px;
   font-family: "Nunito", sans-serif;
   font-weight: 300;
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   background-color: none;
   color: var(--dark-grey);
   border: none;

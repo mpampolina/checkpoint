@@ -32,7 +32,8 @@ boardTemplate.innerHTML = `
     .board {
       display: flex;
       flex-direction: column;
-      width: 700px;
+      max-width: 700px;
+      min-width: 420px;
       margin: 10px auto;
       border: 1px solid var(--dark-grey);
       border-radius: 15px;
@@ -148,16 +149,35 @@ linkTemplate.innerHTML = `
       grid-template-columns: 5fr 1fr;
       align-items: center;
     }
+
+    .link-body {
+      display: flex;
+      flex-direction: column;
+      grid-template-columns: 1 / span 5;
+    }
+    
+    .link-body p {
+      /* enable the word (link) to be broken 
+      anywhere when scaling the viewport */
+      word-break: break-all;
+    }
     
     .link-url {
       font-size: 1rem;
       color: var(--dark-grey)
     }
+
+    .link-line-actions--control {
+      grid-template-columns: 5 / span 1;
+      display: flex;
+      justify-content: center;
+    }
     
     .link-line-actions--control button {
+      margin: 5px 5px;
       font-family: "Nunito", sans-serif;
       color: var(--dark-grey);
-      font-size: 1.5rem;
+      font-size: 1.2rem;
       font-weight: 300;
       background-color: none;
       border: none;
@@ -165,18 +185,19 @@ linkTemplate.innerHTML = `
     }
     
     .link-line-actions--control a {
+      margin: 5px 5px;
       font-family: "Nunito", sans-serif;
       color: var(--dark-grey);
-      font-size: 1.5rem;
+      font-size: 1.2rem;
       font-weight: 300;
       text-decoration: none;
     }
   </style>
 
   <div class="link-line">
-    <div class="flexV">
-      <h4>CSS box-shadow Property</h4>
-      <p class="link-url">https://www.w3schools.com/cssref/css3_pr_box-shadow.asp</p>
+    <div class="link-body">
+      <h4></h4>
+      <p class="link-url"></p>
     </div>
     <div class="link-line-actions--control">
       <a href="#" target="_blank" rel="noopener norefferer">open</a>
@@ -267,7 +288,7 @@ addLinkSectionTemplate.innerHTML = `
       margin: 5px 5px;
       font-family: "Nunito", sans-serif;
       font-weight: 300;
-      font-size: 1.5rem;
+      font-size: 1.2rem;
       background-color: none;
       color: var(--dark-grey);
       border: none;
@@ -290,9 +311,9 @@ addLinkSectionTemplate.innerHTML = `
     </button>
     <form action="" class="add-link-form hide-elem form">
       <label for="link-url-input">Link URL</label>
-      <input class="input" type="text" name="link-url-input" placeholder="http:// ...">
+      <input class="input" type="text" name="link-url-input" placeholder="https:// ...">
       <label for="link-title-input">Link Title</label>
-      <input class="input" type="text" name="link-title-input" placeholder="insert awesome website here">
+      <input class="input" type="text" name="link-title-input" placeholder="website title">
       <div class="btn-control">
         <button class="form-btn" type="submit">save</button>
         <button class="form-btn cancel-btn" type="button">cancel</button>
@@ -370,3 +391,10 @@ toggleBoardFormArr.forEach((element) => {
     addBoardBtnForm.classList.toggle("hide-elem");
   });
 });
+
+/* 
+0.8 rem for small text
+1rem for text body
+1.2 rem for medium
+1.5 rem for large
+2rem for logo */
