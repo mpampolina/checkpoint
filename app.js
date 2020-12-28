@@ -107,6 +107,14 @@ boardTemplate.innerHTML = `
     .dropdown .hide-elem {
       display: none;
     }
+
+    @media (max-width: 920px) {
+      .dropdown-content {
+        position: absolute;
+        margin: 0px -95px;
+        width: 140px;
+      }
+    }
   </style>
 
   <div class="board">

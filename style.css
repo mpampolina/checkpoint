@@ -39,6 +39,7 @@ body {
   display: grid;
   gap: 10px;
   grid-template-columns: repeat(8, 1fr);
+  grid-template-rows: 1fr;
   align-items: center;
 }
 
@@ -47,11 +48,11 @@ body {
   font-weight: 600;
   font-size: 2rem;
   grid-column: 1 / span 2;
-  text-align: center;
+  text-align: start;
 }
 
 #search-wrapper {
-  grid-column: 3 / span 5;
+  grid-column: 3 / span 4;
 }
 
 #search {
@@ -71,13 +72,17 @@ body {
 }
 
 .navbar nav {
-  grid-column: 8 / span 1;
+  grid-column: 7 / span 2;
   width: 100%;
-  justify-content: center
 }
 
 nav ul {
   list-style-type: none;
+  justify-content: flex-end;
+}
+
+nav ul li {
+  margin: 0px 10px;
 }
 
 nav ul li a {
@@ -88,7 +93,7 @@ nav ul li a {
 
 .navbar {
   width: 100%;
-  height: 150px;
+  height: 100px;
   background-color: var(--light-blue);
   color: var(--dark-grey)
 }
@@ -401,6 +406,41 @@ over to webcomponent's stylesheet)*/
   outline: none;
 }
 
+/* Change this manually for testing purposes*/
 .dropdown .hide-elem {
-  display: none;
+  display: block;
+}
+
+@media (max-width: 920px) {
+  .dropdown-content {
+    position: absolute;
+    margin: 0px -95px;
+    width: 140px;
+  }
+}
+
+@media (max-width: 800px) {
+  .navbar {
+    height: 120px;
+  }
+
+  #navbar-contents {
+    grid-template-rows: 1fr 1fr;
+    align-items: center;
+  }
+
+  #logo {
+    grid-column: 1 / span 4;
+  }
+
+  .navbar nav {
+    grid-column: 5 / span 4;
+  }
+
+  #search-wrapper {
+    grid-column: 2 / span 6;
+    grid-row: 2 / span 1;
+    width: 100%;
+    display: block;
+  }
 }
