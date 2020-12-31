@@ -1,0 +1,164 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,600;0,800;1,400&display=swap');
+
+:root {
+  --light-blue: #19d3da;
+  --dark-grey: #373a40;
+  --grey-white: #eeeeee;
+  --white: #ffffff;
+}
+
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  font-family: "Nunito", sans-serif;
+  font-weight: 300;
+  font-size: 1.2rem;
+}
+
+#content-wrap {
+  min-height: 100%;
+  /* allot 100px for the footer */
+  margin-bottom: -100px;
+}
+
+.navbar {
+  width: 100%;
+  height: 100px;
+  background-color: white;
+  color: var(--dark-grey)
+}
+
+#navbar-contents {
+  height: 100%;
+  display: grid;
+  gap: 10px;
+  grid-template-columns: repeat(8, 1fr);
+  grid-template-rows: 1fr;
+  align-items: center;
+}
+
+#logo {
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  font-size: 2rem;
+  grid-column: 1 / span 2;
+  text-align: start;
+  color: var(--light-blue)
+}
+
+#search-wrapper {
+  grid-column: 3 / span 4;
+}
+
+#search {
+  font-family: "Nunito", sans-serif;
+  font-weight: 400;
+  font-size: 1rem;
+  padding: 5px 8px;
+  /* background-color: var(--light-blue); */
+  width: 100%;
+  border: 0px;
+  border-bottom: 2px solid var(--dark-grey);
+}
+
+#search:focus {
+  outline: none;
+  /* background-color: var(--light-blue); */
+}
+
+.navbar nav {
+  grid-column: 7 / span 2;
+  width: 100%;
+}
+
+nav ul {
+  list-style-type: none;
+  justify-content: flex-end;
+}
+
+nav ul li {
+  margin: 0px 10px;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: var(--dark-grey);
+  font-size: 1.2rem;
+}
+
+/* Create a 100px placeholder for our footer */
+#content-wrap::after {
+  content: "";
+  display: block;
+  height: 100px;
+}
+
+#footer {
+  width: 100%;
+  height: 100px;
+  background-color: var(--grey-white);
+  color: var(--dark-grey);
+  justify-content: center;
+  align-items: center;
+}
+
+#footer-text {
+  font-size:  1rem;
+  text-align: center;
+}
+
+#footer-text a {
+  text-decoration: none;
+  color: var(--dark-grey);
+}
+
+#footer-logo {
+  color: var(--light-blue);
+  font-weight: 600;
+  font-family: "Poppins", sans-serif;
+}
+
+#footer-links-array {
+  margin: 10px auto;
+}
+
+#copyright {
+  font-weight: 300;
+  font-size: 0.8rem;
+}
+
+@media (max-width: 800px) {
+  .navbar {
+    height: 120px;
+  }
+
+  #navbar-contents {
+    grid-template-rows: 1fr 1fr;
+    align-items: center;
+  }
+
+  #logo {
+    grid-column: 1 / span 4;
+  }
+
+  .navbar nav {
+    grid-column: 5 / span 4;
+  }
+
+  #search-wrapper {
+    grid-column: 2 / span 6;
+    grid-row: 2 / span 1;
+    width: 100%;
+    display: block;
+  }
+}
+

@@ -4,127 +4,96 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Checkpoint</title>
-  <link rel="stylesheet" href="./style.css">
-  <link rel="stylesheet" href="./utilities.css">
+  <link rel="stylesheet" href="./stylesheets/layout.css">
+  <link rel="stylesheet" href="./stylesheets/dashboard.css">
+  <link rel="stylesheet" href="./stylesheets/utilities.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" />
 </head>
 <body>
-  <div id="page-container">
-    <div id="content-wrap">
-      <!-- navbar -->
-      <div class="navbar">
-        <div class="container" id="navbar-contents">
-          <h1 id="logo">Checkpoint</h1>
-          <form id="search-wrapper">
-            <input type="text" id="search" placeholder="search">
+  <div id="content-wrap">
+    <!-- navbar -->
+    <section class="navbar">
+      <div class="container" id="navbar-contents">
+        <h1 id="logo">Checkpoint</h1>
+        <form id="search-wrapper">
+          <input type="text" id="search" placeholder="search">
+        </form>
+        <nav>
+          <ul class="flexH">
+            <li><a href="./landing.html">Home</a></li>
+            <li><a href="#">Sign In</a></li>
+          </ul>
+        </nav>
+      </div>
+    </section>
+    
+    <!-- add-board-btn -->
+    <section class="container">
+      <div id="add-board-btn--container">
+        <button id="add-board-btn">
+          <p>-- Add New Board --</p>
+        </button>
+        <div id="add-board-btn--form" class="form hide-elem">
+          <form action="" class=" flexV">
+            <label for="board-title">Board Title</label>
+            <input type="text" name="board-title" id="add-board-btn--input">
+            <div class="btn-control">
+              <button class="form-btn" type="submit">save</button>
+              <button class="form-btn" id="add-board-btn--cancel" type="button">cancel</button>
+            </div>
           </form>
-          <nav>
-            <ul class="flexH">
-              <li><a href="#">Sign In</a></li>
-              <li><a href="#">About</a></li>
-            </ul>
-          </nav>
         </div>
       </div>
-      
-      <!-- add-board-btn -->
-      <div class="container">
-        <div id="add-board-btn--container">
-          <button id="add-board-btn">
-            <p>-- Add New Board --</p>
-          </button>
-          <div id="add-board-btn--form" class="form hide-elem">
-            <form action="" class=" flexV">
-              <label for="board-title">Board Title</label>
-              <input type="text" name="board-title" id="add-board-btn--input">
-              <div class="btn-control">
-                <button class="form-btn" type="submit">save</button>
-                <button class="form-btn" id="add-board-btn--cancel" type="button">cancel</button>
-              </div>
-            </form>
-          </div>
-        </div>
-      </div>
+    </section>
 
-      <!-- simple HTML version -->
-      <div class="container flexV" >
-        <div class="board flexV">
-          <div class="board-header flexH">
-            <h3>Programming & JavaScript</h3>
-            <div class="dropdown">
-              <button class="board-related-actions">
-                <i class="fas fa-ellipsis-v"></i>
-              </button>
-              <div class="dropdown-content hide-elem">
-                <button class="ra-cancel-btn">Cancel</button>
-                <button class="ra-toggle-delete-btn">Show Delete Buttons</button>
-                <button class="ra-delete-btn">Delete Board</button>
-              </div>
-            </div>
-          </div>
-          <div class="link-line">
-            <div class="link-body">
-              <h4>Using templates and slots</h4>
-              <p class="link-url">https://developer.mozilla.org/en-US/docs/Web/Web_Components/Using_templates_and_slots</p>
-            </div>
-            <div class="link-line-actions--control">
-              <a href="#" target="_blank" rel="noopener norefferer" class="open-link-anchor">open</a>
-              <button class="delete-link-btn hide-elem">delete</button>
-            </div>
-          </div>
+    <!-- board web component -->
+    <link-board title="Programming & JavaScript">
+      <link-line
+        slot="link-line"
+        linkTitle="MongoDB schema design"
+        linkUrl="https://medium.com/hackernoon/mongodb-schema-design-86327d8fae83"
+      ></link-line>
+      <link-line
+        slot="link-line"
+        linkTitle="Using templates and slots"
+        linkUrl="https://developer.mozilla.org/en-US/docs/Web/Web_Components/Using_templates_and_slots"
+      ></link-line>
+      <add-link-section
+        slot="add-link-section"
+      ></add-link-section>
+    </link-board>
+    <link-board title="Recipes">
+      <link-line
+        slot="link-line"
+        linkTitle="Yellow Curry Fried Rice"
+        linkUrl="https://www.allrecipes.com/recipe/282347/yellow-curry-fried-rice/"
+      ></link-line>
+      <link-line
+        slot="link-line"
+        linkTitle="Soft Chocolate Chip Cookies"
+        linkUrl="https://sallysbakingaddiction.com/chocolate-chip-cookies/"
+      ></link-line>
+      <add-link-section
+        slot="add-link-section"
+      ></add-link-section>
+    </link-board>
 
-          <div class="add-link-btn--container">
-            <button class="add-link-btn form-btn">
-              <h4>-- Add New Link --</h4>
-            </button>
-            <form action="" class="add-link-form hide-elem form flexV">
-              <label for="link-url-input">Link URL</label>
-              <input class="input" type="text" name="link-url-input" placeholder="https:// ...">
-              <label for="link-title-input">Link Title</label>
-              <input class="input" type="text" name="link-title-input" placeholder="website title">
-              <div class="btn-control">
-                <button class="form-btn" type="submit">save</button>
-                <button class="form-btn cancel-btn" type="button">cancel</button>
-              </div>
-            </form>
-          </div>
-        </div>
+  </div>
 
-        <!-- web components version -->
-        <link-board title="Programming & JavaScript">
-          <link-line
-            slot="link-line"
-            linkTitle="MongoDB schema design"
-            linkUrl="https://medium.com/hackernoon/mongodb-schema-design-86327d8fae83"
-          ></link-line>
-          <link-line
-            slot="link-line"
-            linkTitle="Using templates and slots"
-            linkUrl="https://developer.mozilla.org/en-US/docs/Web/Web_Components/Using_templates_and_slots"
-          ></link-line>
-          <add-link-section
-            slot="add-link-section"
-          ></add-link-section>
-        </link-board>
-
+  <!-- Footer (end of content-wrap) -->
+  <footer id="footer" class="flexH">
+    <div class="container">
+      <div id="footer-text">
+        <p><span id="footer-logo">Checkpoint</span></p>
+        <p id="footer-links-array">
+          <a href="https://github.com/mpampolina/checkpoint" target="_blank" rel="noopener norefferer">code</a> 
+          • <a href="https://mpampolina.github.io/" target="_blank" rel="noopener norefferer">website</a> 
+          • <a href="https://github.com/mpampolina" target="_blank" rel="noopener norefferer">github</a>
+        </p>
+        <p id="copyright">&copy;2020 by miguel pampolina</p>
       </div>
     </div>
-
-    <!-- Footer (end of content-wrap) -->
-    <footer id="footer" class="flexH">
-      <div class="container">
-        <div id="footer-text">
-          <p><span id="footer-logo">Checkpoint</span></p>
-          <p id="footer-links-array">
-            <a href="https://github.com/mpampolina/checkpoint" target="_blank" rel="noopener norefferer">code</a> 
-            • <a href="https://mpampolina.github.io/" target="_blank" rel="noopener norefferer">website</a> 
-            • <a href="https://github.com/mpampolina" target="_blank" rel="noopener norefferer">github</a>
-          </p>
-          <p id="copyright">&copy;2020 by miguel pampolina</p>
-        </div>
-      </div>
-    </footer>
-  </div>
+  </footer>
 </body>
-<script src="./app.js"></script>
+<script type="module" src="./app.js"></script>
 </html>

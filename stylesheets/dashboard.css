@@ -1,0 +1,61 @@
+/* Add Board Button Styles */
+
+#add-board-btn--container {
+  max-width: 700px;
+  /* account for padding, which is 40px x2*/
+  min-width: 420px;
+  margin: 10px auto;
+  background-color: var(--dark-grey);
+  border: none;
+  border-radius: 15px;
+  box-shadow: -5px 5px 0px var(--light-blue);
+}
+
+#add-board-btn {
+  width: 100%;
+  padding: 10px 0px;
+  background-color: var(--dark-grey);
+  color:white;
+  font-family: "Nunito", sans-serif;
+  font-size: 1.2rem;
+  font-weight: 300;
+  border: var(--dark-grey);
+  border-radius: 15px;
+  cursor: pointer;
+}
+
+#add-board-btn:focus {
+  outline: none;
+}
+
+#add-board-btn--container .hide-elem {
+  display: none;
+}
+
+#add-board-btn--form {
+  background-color: var(--dark-grey);
+  color: white;
+}
+
+#add-board-btn--form button {
+  background-color: var(--dark-grey);
+  color: white;
+  border-bottom: 2px solid var(--dark-grey);
+}
+
+#add-board-btn--form button:hover {
+  border-bottom: 2px solid var(--light-blue);
+}
+
+#add-board-btn--input {
+  margin: 10px 0px;
+  background-color: var(--dark-grey);
+  color: white;
+  border: none;
+  border-bottom: 2px solid white;
+  font-size: 1.2rem;
+}
+
+#add-board-btn--input:focus {
+  outline: none;
+}

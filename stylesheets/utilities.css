@@ -121,3 +121,56 @@
   /* 128px */
   font-size: 4rem;
 }
+
+/* FORM UTILITIES */
+/* Shared between the add-link-form web component and the
+add-board-form section */
+
+.form {
+  margin: 10px 10px;
+  padding: 10px 20px;
+  background-color: var(--grey-white);
+  color: var(--dark-grey);
+  border-radius: 10px;
+}
+
+.input {
+  font-family: "Nunito", sans-serif;
+  font-size: 1.2rem;
+  background-color: var(--grey-white);
+  color: var(--dark-grey);
+  border: none;
+  border-bottom: 2px solid var(--dark-grey);
+  margin: 10px 0px;
+}
+
+.input:focus {
+  outline: none;
+}
+
+.btn-control {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+}
+
+.form-btn {
+  padding: 10px 5px 0px 5px;
+  margin: 5px 5px;
+  font-family: "Nunito", sans-serif;
+  font-weight: 300;
+  font-size: 1.2rem;
+  background-color: none;
+  color: var(--dark-grey);
+  border: none;
+  border-bottom: 2px solid var(--grey-white);
+  cursor: pointer;
+}
+
+.form-btn:hover {
+  border-bottom: 2px solid var(--light-blue)
+}
+
+.form-btn:focus {
+  outline: none;
+}
