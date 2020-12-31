@@ -103,3 +103,31 @@
     background: linear-gradient(327.8deg, #19D3DA 30%, rgba(25, 211, 218, 0) 90%);
   }
 }
+
+/* REGISTER */
+
+#form-card--container {
+  width: 100%;
+}
+
+#form-card--container h1 {
+  max-width: 500px;
+  margin: 10px auto;
+  padding-left: 10px;
+  font-weight: 300;
+}
+
+.form-card {
+  max-width: 500px;
+  margin: 10px auto;
+}
+
+.login-register-switch--text {
+  font-size: 1rem;
+}
+
+.login-register-switch--link {
+  font-size: 1rem;
+  color: var(--light-blue);
+  text-decoration: none;
+}
