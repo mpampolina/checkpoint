@@ -3,6 +3,7 @@ const router = express.Router();
 
 /* Landing Page Route */
 router.get("/", (req, res) => {
+  /* render landing.ejs with { variables }*/
   res.render("landing", { dashboard: null, child_route: false });
 });
 
