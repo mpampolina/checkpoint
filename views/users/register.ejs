@@ -3,15 +3,25 @@
 <section id="form-card--container" class="container">
   <h1>Create an account</h1>
   <div class="form-card">
-    <form class="form flexV" action="">
+    <form class="form flexV" action="/users/register" method="POST">
       <label for="name">Name</label>
-      <input name="name" class="input" type="text">
+      <input 
+        name="name" 
+        class="input" 
+        type="text" 
+        value="<%= typeof name !== 'undefined' ? name: '' %>"
+      >
       <label for="email">Email</label>
-      <input name="email" class="input" type="text">
+      <input 
+        name="email" 
+        class="input" 
+        type="email"
+        value="<%= typeof email !== 'undefined' ? email: '' %>"
+      >
       <label for="password">Password</label>
-      <input name="password" class="input" type="text">
-      <label for="confirm-password">Confirm Password</label>
-      <input name="confirm-password" class="input" type="text">
+      <input name="password" class="input" type="password">
+      <label for="password2">Confirm Password</label>
+      <input name="password2" class="input" type="password">
       <p class="login-register-switch--text">Have an account? - <a class="login-register-switch--link" href="/users/login">Login</a></p>
       <div class="btn-control">
         <input class="form-btn"type="submit" value="Register">

@@ -1,19 +1,44 @@
 const mongoose = require("mongoose")
 
 const linkSchema = new mongoose.Schema({
-  link_title: String,
-  url: String
+  link_title: {
+    type: String,
+    required: true
+  },
+  url: {
+    type: String,
+    required: true
+  }
 })
 
 const boardSchema = new mongoose.Schema({
-  board_title: String,
-  links: [linkSchema]
+  board_title: {
+    type: String,
+    required: true
+  },
+  links: {
+    type: [linkSchema],
+    required: true
+  }
 })
 
 const userSchema = new mongoose.Schema({
-  name: String,
-  password: String,
-  boards: [boardSchema]
+  name: {
+    type: String,
+    required: true
+  },
+  email: {
+    type: String,
+    required: true
+  },
+  password: {
+    type: String,
+    required: true
+  },
+  boards: {
+    type: [boardSchema],
+    required: true
+  }
 })
 
 const User = mongoose.model('User', userSchema);

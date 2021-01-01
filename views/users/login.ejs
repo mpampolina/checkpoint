@@ -3,9 +3,13 @@
 <section id="form-card--container" class="container">
   <h1>Sign In</h1>
   <div class="form-card">
-    <form class="form flexV" action="">
+    <form class="form flexV" action="/users/login" method="POST">
       <label for="email">Email</label>
-      <input name="email" class="input" type="text">
+      <input 
+        name="email" 
+        class="input" 
+        type="text"
+        value="<%= typeof email !== 'undefined' ? email: '' %>">
       <label for="password">Password</label>
       <input name="password" class="input" type="text">
       <p class="login-register-switch--text">Need an account? - <a class="login-register-switch--link" href="/users/register">Register</a></p>
