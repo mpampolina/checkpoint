@@ -1,6 +1,7 @@
 const express = require("express");
 const bcrypt = require("bcryptjs");
 const User = require("../models/User.js");
+const passport = require("passport");
 
 const router = express.Router();
 
@@ -23,7 +24,7 @@ const registerRetry = (res, errors, name, email) => {
     child_route: true,
     errors,
     name,
-    email
+    email,
   });
   /* Note: .render() path is directory
   path from the views folder */
@@ -69,7 +70,7 @@ router.post("/register", async (req, res) => {
           name: name,
           email: email,
           password: password,
-          boards: []
+          boards: [],
         });
 
         /* Generate hashed password */
@@ -83,23 +84,34 @@ router.post("/register", async (req, res) => {
             try {
               /* Save user model instance with the new
               hashed password to the database. */
-              await newUser.save()
+              await newUser.save();
               res.redirect("/users/login");
               /* Note: .redirect() path is URL
               path from localhost:5000/users */
-            }
-            catch(err) {
+            } catch (err) {
               console.log(err);
             }
-
           });
         });
-
       }
     } catch (err) {
       console.log(err);
     }
   }
 });
+
+/* == User Login Form Submission == */
+router.post(
+  "/login",
+  passport.authenticate("local", {
+    successRedirect: "/dashboard",
+    failureRedirect: "/users/login",
+    failureFlash: true,
+  })
+);
+/* Run passport.authenticate() middleware
+upon POSTing our login request. This will
+invoke our local strategy we defined earlier
+in passport.js */
 
 module.exports = router;

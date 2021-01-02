@@ -31,9 +31,17 @@
   justify-content: space-between;
 }
 
+.alert-card--success {
+  background-color: var(--pastel-green);
+}
+
+.alert-card--warning {
+  background-color: var(--pastel-red);
+}
+
 .dismissable--button {
   border: none;
-  background-color: var(--pastel-yellow);
+  background-color: inherit;
   font-size: 1rem;
   cursor: pointer;
 }
