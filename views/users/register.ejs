@@ -2,6 +2,7 @@
 
 <section id="form-card--container" class="container">
   <h1>Create an account</h1>
+  <%- include ("../partials/alerts") %>
   <div class="form-card">
     <form class="form flexV" action="/users/register" method="POST">
       <label for="name">Name</label>
@@ -29,3 +30,5 @@
     </form>
   </div>
 </section>
+
+<script src="alerts.js"></script>

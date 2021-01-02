@@ -1,6 +1,8 @@
 const express = require("express");
 const expressLayouts = require("express-ejs-layouts");
 const mongoose = require("mongoose");
+const flash = require("connect-flash");
+const session = require("express-session");
 require("dotenv").config();
 
 const app = express();
@@ -35,6 +37,18 @@ app.use(express.urlencoded({ extended: false }));
 /* == setup view engine ==  */
 app.set("view engine", "ejs");
 app.use(expressLayouts);
+
+/* == setup express session == */
+app.use(
+  session({
+    secret: process.env.SECRET,
+    resave: true,
+    saveUninitialized: true,
+  })
+);
+
+/* == setup connect-flash middleware == */
+app.use(flash());
 
 /* == setup routes == */
 app.use("/", require("./routes/index.js"));
