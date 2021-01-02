@@ -41,6 +41,12 @@
   align-self: center;
 }
 
+#hero-text a:hover {
+  background-color: var(--darken-blue);
+  -webkit-transition: background-color 0.1s ease-in;
+  transition: background-color 0.1s ease-in;
+}
+
 #hero-image--container {
   width: 100%;
   /* adapt to height of contents */

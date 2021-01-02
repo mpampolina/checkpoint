@@ -3,6 +3,7 @@
 
 :root {
   --light-blue: #19d3da;
+  --darken-blue: #119498;
   --dark-grey: #373a40;
   --grey-white: #eeeeee;
   --white: #ffffff;
@@ -55,7 +56,11 @@ body {
   font-size: 2rem;
   grid-column: 1 / span 2;
   text-align: start;
-  color: var(--light-blue)
+}
+
+#logo a {
+  color: var(--light-blue);
+  text-decoration: none;
 }
 
 #search-wrapper {
@@ -94,8 +99,13 @@ nav ul li {
 
 nav ul li a {
   text-decoration: none;
+  border-bottom: 2px solid white;
   color: var(--dark-grey);
   font-size: 1.2rem;
+}
+
+nav ul li a:hover {
+  border-bottom: 2px solid var(--light-blue);
 }
 
 /* Create a 100px placeholder for our footer */

@@ -2,25 +2,25 @@ const express = require("express");
 const bcrypt = require("bcryptjs");
 const User = require("../models/User.js");
 const passport = require("passport");
+const auth = require("../config/auth.js")
 
 const router = express.Router();
 
 /* == Login Route == */
-router.get("/login", (req, res) => {
-  res.render("users/login", { dashboard: null, child_route: true });
+router.get("/login", auth.alreadyAuthenticated, (req, res) => {
+  res.render("users/login", { child_route: true });
   // note that .render() takes the relative route of the .ejs file from the "views" folder
 });
 
 /* == Register Route == */
 router.get("/register", (req, res) => {
-  res.render("users/register", { dashboard: null, child_route: true });
+  res.render("users/register", { child_route: true });
 });
 
 /* Re-render the register page to allow the
 user to retry account registration. */
 const registerRetry = (res, errors, name, email) => {
   res.render("users/register", {
-    dashboard: null,
     child_route: true,
     errors,
     name,
@@ -113,5 +113,12 @@ router.post(
 upon POSTing our login request. This will
 invoke our local strategy we defined earlier
 in passport.js */
+
+/* == User Logout Handler == */
+router.get('/logout', (req, res) => {
+  req.logout();
+  req.flash("success_msg", "You have been successfully logged out.")
+  res.redirect('/users/login');
+})
 
 module.exports = router;
