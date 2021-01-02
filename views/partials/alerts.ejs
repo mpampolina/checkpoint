@@ -1,6 +1,10 @@
-<div class="alert-card">
-  This is an alert...
-  <button class="dismissable--button">
-    <span>&times;</span>
-  </button>
-</div>
+<% if (typeof errors !== 'undefined') { %>
+  <% errors.forEach((error) => { %>
+    <div class="alert-card">
+      <%= error.error_msg %>
+      <button class="dismissable--button">
+        <span>&times;</span>
+      </button>
+    </div>
+  <% }); %>
+<% } %>
