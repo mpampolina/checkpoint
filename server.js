@@ -79,6 +79,7 @@ app.use((req, res, next) => {
 /* == setup routes == */
 app.use("/", require("./routes/index.js"));
 app.use("/users", require("./routes/users.js"));
+app.use("/api", require("./routes/api.js"));
 
 /* == launch server == */
 const PORT = process.env.PORT || 5000;

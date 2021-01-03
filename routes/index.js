@@ -5,7 +5,7 @@ const auth = require("../config/auth.js");
 /* Landing Page Route */
 router.get("/", (req, res) => {
   /* render landing.ejs with { variables }*/
-  res.render("landing", { child_route: false, user: req.user});
+  res.render("landing", { child_route: false, user: req.user });
 });
 
 /* Dashboard Route */

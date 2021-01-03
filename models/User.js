@@ -1,46 +1,25 @@
-const mongoose = require("mongoose")
-
-const linkSchema = new mongoose.Schema({
-  link_title: {
-    type: String,
-    required: true
-  },
-  url: {
-    type: String,
-    required: true
-  }
-})
-
-const boardSchema = new mongoose.Schema({
-  board_title: {
-    type: String,
-    required: true
-  },
-  links: {
-    type: [linkSchema],
-    required: true
-  }
-})
+const mongoose = require("mongoose");
+const { Board, boardSchema } = require("./Board.js");
 
 const userSchema = new mongoose.Schema({
   name: {
     type: String,
-    required: true
+    required: true,
   },
   email: {
     type: String,
-    required: true
+    required: true,
   },
   password: {
     type: String,
-    required: true
+    required: true,
   },
   boards: {
     type: [boardSchema],
-    required: true
-  }
-})
+    required: true,
+  },
+});
 
-const User = mongoose.model('User', userSchema);
+const User = mongoose.model("User", userSchema);
 
 module.exports = User;
