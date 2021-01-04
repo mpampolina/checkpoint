@@ -17,13 +17,12 @@ router.post("/", (req, res) => {
       $push: { boards: new_board },
     }
   )
-    .then((db_res) => {
-      console.log(db_res);
+    .then(() => {
       res.status(200).json({ success: true, _id: new_board._id });
     })
     .catch((err) => {
       res.status(200).json({ success: false });
-      console.log(err);
+      console.error(err);
     });
 });
 
@@ -35,13 +34,12 @@ router.delete("/:boardId", (req, res) => {
     { _id: req.user._id },
     { $pull: { boards: { _id: ObjectId(board_id) } } }
   )
-    .then((db_res) => {
-      console.log(db_res);
+    .then(() => {
       res.status(200).json({ success: true });
     })
     .catch((err) => {
       res.status(200).json({ success: false });
-      console.log(err);
+      console.error(err);
     });
 });
 
@@ -54,13 +52,12 @@ router.put("/add", (req, res) => {
     { _id: req.user._id, "boards._id": ObjectId(board_id) },
     { $push: { "boards.$.links": new_link } }
   )
-    .then((res_db) => {
-      console.log(res_db);
+    .then(() => {
       res.status(200).json({ success: true, _id: new_link._id });
     })
     .catch((err) => {
       res.status(200).json({ success: false });
-      console.log(err);
+      console.error(err);
     });
 });
 
@@ -78,13 +75,12 @@ router.put("/delete", (req, res) => {
       },
     }
   )
-    .then((res_db) => {
-      console.log(res_db);
+    .then(() => {
       res.status(200).json({ success: true });
     })
     .catch((err) => {
       res.status(200).json({ success: false });
-      console.log(err);
+      console.error(err);
     });
 });
 

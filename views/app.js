@@ -2,6 +2,7 @@ import {
   boardTemplate,
   linkTemplate,
   addLinkSectionTemplate,
+  errorTemplate,
 } from "./components.js";
 
 /* FUNCTION - Set multiple attributes for an HTML object. */
@@ -45,6 +46,8 @@ class LinkBoard extends HTMLElement {
 
     if (success) {
       this.remove();
+    } else {
+      addErrorCard();
     }
   }
 
@@ -109,6 +112,8 @@ class LinkLine extends HTMLElement {
 
     if (success) {
       this.remove();
+    } else {
+      addErrorCard();
     }
   }
 
@@ -179,6 +184,8 @@ class AddLinkSection extends HTMLElement {
       /* == clear the form inputs == */
       linkTitleInput.value = "";
       linkUrlInput.value = "";
+    } else {
+      addErrorCard();
     }
   }
 
@@ -206,9 +213,39 @@ class AddLinkSection extends HTMLElement {
   }
 }
 
+class ErrorCard extends HTMLElement {
+  constructor() {
+    super();
+    this.attachShadow({ mode: "open" });
+  }
+
+  connectedCallback() {
+    const sr = this.shadowRoot;
+    sr.appendChild(errorTemplate.content.cloneNode(true));
+    sr.querySelector(".dismissable--button").addEventListener("click", () => {
+      this.remove();
+    });
+  }
+}
+
+/* adds an error card to the top of the dashboard in the
+event of an API request failure. Will only add one error
+card in the case of multiple errors. */
+const addErrorCard = () => {
+  const errorCard = document.querySelector("error-card");
+  const contentWrap = document.getElementById("content-wrap");
+  const addBoardSection = document.getElementById("add-board-section");
+  /* if the errorCard query === null, add a new error card */
+  if (!errorCard) {
+    const newErrorCard = document.createElement("error-card");
+    contentWrap.insertBefore(newErrorCard, addBoardSection);
+  }
+};
+
 window.customElements.define("link-board", LinkBoard);
 window.customElements.define("link-line", LinkLine);
 window.customElements.define("add-link-section", AddLinkSection);
+window.customElements.define("error-card", ErrorCard);
 
 const addBoardBtnForm = document.querySelector("#add-board-btn--form");
 const toggleBoardFormArr = [
@@ -251,6 +288,8 @@ addBoardForm.addEventListener("submit", async (e) => {
       newBoard.appendChild(newAddLinkSection);
       boardList.appendChild(newBoard);
       addBoardBtnInput.value = "";
+    } else {
+      addErrorCard();
     }
   }
 });

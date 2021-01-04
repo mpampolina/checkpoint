@@ -336,4 +336,38 @@ addLinkSectionTemplate.innerHTML = `
   </div>
 `;
 
-export { boardTemplate, linkTemplate, addLinkSectionTemplate }
+const errorTemplate = document.createElement("template")
+errorTemplate.innerHTML = `
+<style>
+  .alert-card--dash {
+    max-width: 660px;
+    height: auto;
+    background-color: var(--pastel-yellow);
+    margin: 10px auto;
+    border-radius: 10px;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .dismissable--button {
+    border: none;
+    background-color: inherit;
+    font-size: 1rem;
+    cursor: pointer;
+  }
+
+  .dismissable--button:focus {
+    outline: none;
+  }
+</style>
+
+<div class="alert-card--dash">
+  <p>Oops. Something went wrong. To report a bug, please contact the maintainer at miguelpampolina.dev@gmail.com.</p>
+  <button class="dismissable--button">
+    <span>&times;</span>
+  </button>
+</div>
+`
+
+export { boardTemplate, linkTemplate, addLinkSectionTemplate, errorTemplate }
