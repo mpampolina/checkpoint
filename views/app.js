@@ -293,3 +293,25 @@ addBoardForm.addEventListener("submit", async (e) => {
     }
   }
 });
+
+/* filter visible boards by a user-defined search value. */
+const searchbar = document.getElementById("search");
+
+searchbar.addEventListener("keyup", (e) => {
+  const searchbar_value = e.target.value.toLowerCase();
+  Array.from(document.querySelectorAll("link-board")).forEach((board) => {
+    /* Show boards whose titles match either a user-provided letter 
+    or string. .indexOf() will return the index number of the first letter
+    of the provided string in the title and -1 otherwise.  */
+    if (
+      board
+        .getAttribute("title")
+        .toLowerCase()
+        .indexOf(searchbar_value) != -1
+    ) {
+      board.style.display = "block";
+    } else {
+      board.style.display = "none";
+    }
+  });
+});
