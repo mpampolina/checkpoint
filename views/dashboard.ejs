@@ -1,5 +1,4 @@
 <link rel="stylesheet" href="stylesheets/dashboard.css">
-<h2> Hello <%= user.name %></h2>
 <!-- add-board-btn -->
 <section class="container">
   <div id="add-board-btn--container">
@@ -9,7 +8,7 @@
     <div id="add-board-btn--form" class="form hide-elem">
       <form action="" class=" flexV">
         <label for="board_title">Board Title</label>
-        <input type="text" name="board_title" id="add-board-btn--input">
+        <input type="text" name="board_title" id="add-board-btn--input" required>
         <div class="btn-control">
           <button class="form-btn" type="submit">save</button>
           <button class="form-btn" id="add-board-btn--cancel" type="button">cancel</button>
@@ -19,6 +18,7 @@
   </div>
 </section>
 
+<section id="board-list">
 <% user.boards.forEach((board) => { %>
   <link-board
   _id="<%= board._id %>"
@@ -37,5 +37,6 @@
   ></add-link-section>
   </link-board>
 <% }); %>
+</section>
 
 <script type="module" src="./app.js"></script>

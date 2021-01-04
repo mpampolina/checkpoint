@@ -64,7 +64,7 @@ body {
 }
 
 #search-wrapper {
-  grid-column: 3 / span 4;
+  grid-column: 3 / span 3;
 }
 
 #search {
@@ -84,7 +84,7 @@ body {
 }
 
 .navbar nav {
-  grid-column: 7 / span 2;
+  grid-column: 6 / span 3;
   width: 100%;
 }
 
@@ -95,13 +95,14 @@ nav ul {
 
 nav ul li {
   margin: 0px 10px;
+  font-size: 1.2rem;
 }
 
 nav ul li a {
   text-decoration: none;
   border-bottom: 2px solid white;
   color: var(--dark-grey);
-  font-size: 1.2rem;
+  font-size: inherit;
 }
 
 nav ul li a:hover {

@@ -325,9 +325,9 @@ addLinkSectionTemplate.innerHTML = `
     </button>
     <form action="" class="add-link-form hide-elem form">
       <label for="link-url-input">Link URL</label>
-      <input class="input" type="text" name="link-url-input" placeholder="https:// ...">
+      <input class="input link-url-input" type="text" name="link-url-input" required placeholder="https:// ...">
       <label for="link-title-input">Link Title</label>
-      <input class="input" type="text" name="link-title-input" placeholder="website title">
+      <input class="input link-title-input" type="text" name="link-title-input" required placeholder="website title">
       <div class="btn-control">
         <button class="form-btn" type="submit">save</button>
         <button class="form-btn cancel-btn" type="button">cancel</button>
