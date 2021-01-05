@@ -3,11 +3,12 @@ const router = express.Router();
 const mongoose = require("mongoose");
 const ObjectId = mongoose.Types.ObjectId;
 const User = require("../models/User.js");
+const auth = require("../config/auth");
 const { Board, boardSchema } = require("../models/Board.js");
 const { Link, linkSchema } = require("../models/Link.js");
 
 /* POST request to create new board */
-router.post("/", (req, res) => {
+router.post("/", auth.ensureAuthenticated, (req, res) => {
   const { board_title } = req.body;
   const new_board = new Board({ board_title: board_title, links: [] });
 
@@ -27,7 +28,7 @@ router.post("/", (req, res) => {
 });
 
 /* DELETE request to delete a current board */
-router.delete("/:boardId", (req, res) => {
+router.delete("/:boardId", auth.ensureAuthenticated, (req, res) => {
   const board_id = req.params.boardId;
 
   User.updateOne(
@@ -44,7 +45,7 @@ router.delete("/:boardId", (req, res) => {
 });
 
 /* PUT request to add a new link */
-router.put("/add", (req, res) => {
+router.put("/add", auth.ensureAuthenticated, (req, res) => {
   const { link_title, url, board_id } = req.body;
   const new_link = new Link({ link_title: link_title, url: url });
 
@@ -62,7 +63,7 @@ router.put("/add", (req, res) => {
 });
 
 /* PUT request to delete a current link */
-router.put("/delete", (req, res) => {
+router.put("/delete", auth.ensureAuthenticated, (req, res) => {
   const { link_id, board_id } = req.body;
   User.updateOne(
     {
