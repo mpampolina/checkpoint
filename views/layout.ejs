@@ -28,7 +28,8 @@
           <ul class="flexH">
             <% if (typeof user !== 'undefined') { %>
               <li><a href="/dashboard">Dashboard</a></li>
-              <li><a href="/users/logout">Logout</a> | <%= user.name %></li>
+              <li><a href="/users/logout">Logout</a></li>
+              <li>| <%= user.name %></li>
             <% } else { %>
               <li><a href="/users/login">Sign In</a></li>
             <% } %>
