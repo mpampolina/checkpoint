@@ -1,5 +1,7 @@
 /node_modules
-.env
 .http
 checkpoint.mongodb
 checkpoint2.mongodb
+npm-debug.log
+.DS_Store
+/*.env
